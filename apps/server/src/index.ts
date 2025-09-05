@@ -7,7 +7,7 @@ const app = new Hono().basePath("/api")
 app.use(
   "*",
   cors({
-    origin: "https://waitlistz.ioabhishek.workers.dev",
+    origin: "http://localhost:3000",
     allowHeaders: ["Content-Type", "Authorization"],
     allowMethods: ["POST", "GET", "OPTIONS", "PUT", "DELETE", "PATCH"],
     exposeHeaders: ["Content-Length"],
