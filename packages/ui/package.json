@@ -9,16 +9,21 @@
   ],
   "exports": {
     "./styles.css": "./dist/index.css",
-    "./*": "./dist/*.js"
+    "./*": "./dist/*.js",
+    "./globals.css": "./src/styles/globals.css",
+    "./components/*": "./src/components/*.tsx",
+    "./lib/*": "./src/lib/*.ts",
+    "./postcss.config": "./postcss.config.js"
   },
   "license": "MIT",
   "scripts": {
-    "build:styles": "tailwindcss -i ./src/styles.css -o ./dist/index.css",
+    "build:styles": "tailwindcss -i ./src/styles/styles.css -o ./dist/index.css",
     "build:components": "tsc",
     "check-types": "tsc --noEmit",
-    "dev:styles": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
+    "dev:styles": "tailwindcss -i ./src/styles/styles.css -o ./dist/index.css --watch",
     "dev:components": "tsc --watch",
-    "lint": "eslint src --max-warnings 0"
+    "lint": "eslint src --max-warnings 0",
+    "ui:add": "bunx --bun shadcn@latest add"
   },
   "peerDependencies": {
     "react": "^19"
@@ -32,5 +37,14 @@
     "eslint": "^9.33.0",
     "tailwindcss": "^4.1.5",
     "typescript": "5.9.2"
+  },
+  "dependencies": {
+    "@radix-ui/react-accordion": "^1.2.12",
+    "@radix-ui/react-slot": "^1.2.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.542.0",
+    "tailwind-merge": "^3.3.1",
+    "tw-animate-css": "^1.3.8"
   }
 }

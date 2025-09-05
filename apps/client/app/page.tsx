@@ -5,6 +5,8 @@ import { useAuth } from "@/lib/auth-context"
 
 import { useRouter } from "next/navigation"
 import React from "react"
+import { Card } from "@repo/ui/components/card"
+import { Button } from "@repo/ui/components/button"
 
 const page = () => {
   const { user } = useAuth()
@@ -36,14 +38,11 @@ const page = () => {
           <button className="" onClick={() => signOut()}>
             Logout
           </button>
+          <Card title="testing component" href="https://example.com" />
         </div>
       ) : (
         <div className=" flex flex-col items-center justify-center gap-4 ">
-          <button
-            className=" border p-4 rounded-lg cursor-pointer"
-            onClick={handleGoogleSignIn}>
-            Login with Google
-          </button>
+          <Button onClick={handleGoogleSignIn}>Login with Google</Button>
         </div>
       )}
     </div>

@@ -2,8 +2,15 @@
 
 import { signIn, signOut } from "@/lib/auth-client"
 import { useAuth } from "@/lib/auth-context"
+import { Button } from "@repo/ui/components/button"
 import { useRouter } from "next/navigation"
 import React from "react"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@repo/ui/components/accordion"
 
 const page = () => {
   const { user } = useAuth()
@@ -38,11 +45,7 @@ const page = () => {
         </div>
       ) : (
         <div className=" flex flex-col items-center justify-center gap-4 ">
-          <button
-            className=" border p-4 rounded-lg cursor-pointer"
-            onClick={handleGoogleSignIn}>
-            Login with Google
-          </button>
+          <Button onClick={handleGoogleSignIn}>Login with Google</Button>
         </div>
       )}
     </div>
