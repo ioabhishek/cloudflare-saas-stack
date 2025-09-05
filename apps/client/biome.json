@@ -15,7 +15,7 @@
     "indentWidth": 2
   },
   "linter": {
-    "enabled": true,
+    "enabled": false,
     "rules": {
       "recommended": true,
       "suspicious": {

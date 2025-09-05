@@ -38,7 +38,6 @@ const page = () => {
           <button className="" onClick={() => signOut()}>
             Logout
           </button>
-          <Card title="testing component" href="https://example.com" />
         </div>
       ) : (
         <div className=" flex flex-col items-center justify-center gap-4 ">
