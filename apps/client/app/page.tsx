@@ -4,8 +4,7 @@ import { signIn, signOut } from "@/lib/auth-client"
 import { useAuth } from "@/lib/auth-context"
 
 import { useRouter } from "next/navigation"
-import React from "react"
-import { Card } from "@repo/ui/components/card"
+import React, { useEffect } from "react"
 import { Button } from "@repo/ui/components/button"
 
 const page = () => {
@@ -28,6 +27,19 @@ const page = () => {
       console.error("Google sign-in failed:", err)
     }
   }
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api", {
+      credentials: "include", // This will send cookies with the request
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Data from API:", data)
+      })
+      .catch((err) => {
+        console.error("Error fetching API:", err)
+      })
+  }, [])
 
   return (
     <div className="">
