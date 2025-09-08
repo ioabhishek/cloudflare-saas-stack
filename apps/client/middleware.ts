@@ -5,12 +5,12 @@ export default async function middleware(request: Request) {
   const sessionCookie = getSessionCookie(request)
   console.log("sessionCookie", sessionCookie)
 
-  if (!sessionCookie) {
-    console.debug(
-      "[MIDDLEWARE] No session cookie and not on public path, redirecting to /login"
-    )
-    return NextResponse.redirect(new URL("/login", request.url))
-  }
+  // if (!sessionCookie) {
+  //   console.debug(
+  //     "[MIDDLEWARE] No session cookie and not on public path, redirecting to /login"
+  //   )
+  //   return NextResponse.redirect(new URL("/login", request.url))
+  // }
 }
 
 export const config = {
