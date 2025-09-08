@@ -5,20 +5,9 @@ import { useAuth } from "@/lib/auth-context"
 import { Button } from "@repo/ui/components/button"
 import { useRouter } from "next/navigation"
 import React from "react"
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@repo/ui/components/accordion"
 
 const page = () => {
   const { user } = useAuth()
-  const router = useRouter()
-
-  if (user?.name) {
-    router.push("/")
-  }
 
   const handleGoogleSignIn = async () => {
     try {
@@ -26,7 +15,6 @@ const page = () => {
         provider: "google",
         callbackURL: window.location.origin + "/",
       })
-      // router.push("/")
     } catch (err) {
       window.alert("Google sign-in failed")
       console.error("Google sign-in failed:", err)

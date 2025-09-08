@@ -9,11 +9,6 @@ import { Button } from "@repo/ui/components/button"
 
 const page = () => {
   const { user } = useAuth()
-  const router = useRouter()
-
-  // if (user?.name) {
-  //   router.push("/")
-  // }
 
   const handleGoogleSignIn = async () => {
     try {
@@ -21,25 +16,11 @@ const page = () => {
         provider: "google",
         callbackURL: window.location.origin + "/",
       })
-      // router.push("/")
     } catch (err) {
       window.alert("Google sign-in failed")
       console.error("Google sign-in failed:", err)
     }
   }
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api", {
-      credentials: "include", // This will send cookies with the request
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("Data from API:", data)
-      })
-      .catch((err) => {
-        console.error("Error fetching API:", err)
-      })
-  }, [])
 
   return (
     <div className="">
